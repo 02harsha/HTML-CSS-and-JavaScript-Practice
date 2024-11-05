@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bookmarks</h1>
+    <table border="1" style="border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Delete application</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+<script>
+    let bookmarkData=localStorage.getItem('Bookmarks')||[]
+    bookmarkData=JSON.parse(bookmarkData)
+    for(let i=0;i<bookmarkData.length;i++){
+        let row=document.createElement('tr')
+        let userName=document.createElement('td')
+        userName.innerText=bookmarkData[i].name
+        let userRole=document.createElement('td')
+        userRole.innerText=bookmarkData[i].role
+        let userMail=document.createElement('td')
+        userMail.innerText=bookmarkData[i].email
+        let Delete=document.createElement('td')
+        Delete.innerText='delete'
+        row.append(userName,userRole,userMail,Delete)
+        let table=document.querySelector('tbody')
+        table.append(row)
+        Delete.addEventListener('click',()=>{
+            deleteApplication(i)
+        })
+        function deleteApplication(i){
+            bookmarkData.splice(i,1)
+            bookmarkData=JSON.stringify(bookmarkData)
+            bookmarkData=localStorage.setItem('Bookmarks',bookmarkData)
+            window.location.reload()
+        }
+
+    }
+</script>
+</html>

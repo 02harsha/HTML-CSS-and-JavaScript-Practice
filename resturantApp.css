@@ -1,0 +1,211 @@
+/* *{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.app{
+    display: flex;
+    padding: 10px;
+}
+input{
+    width: 50%;
+    padding:10px;
+    border:1px solid rgba(0, 0, 0, 0.171)
+}
+.table-section,.menu-section{
+    display: grid;
+    gap: 10px;
+    width: 40%;
+    
+}
+.table-card-1,.table-card-2,.table-card-3,.menu-card{
+    width: 40%;
+    height: auto;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.263);
+    
+    background-color: #f9f9f9;
+}
+.menu-card:hover{
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+.table-card-1:hover{
+    background-color: #f1f1f1;   
+    cursor: pointer;
+}
+.table-card-2:hover{
+    background-color: #f1f1f1;   
+    cursor: pointer;
+}
+.table-card-3:hover{
+    background-color: #f1f1f1;   
+    cursor: pointer;
+}
+.order-modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+
+  }
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    
+    width: 50%;
+  }
+span:hover{
+    cursor: pointer;
+    box-shadow: #888;
+}
+.modal-body{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    border: 0;
+    background-color: white;
+}
+button:hover{
+    cursor: pointer;
+} */
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+.app {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.table-section, .menu-section {
+    display: grid;
+    gap: 20px;
+    width: 40%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.table-card-1, .table-card-2, .table-card-3, .menu-card {
+    width: 100%;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card:hover, .table-card-1:hover, .table-card-2:hover, .table-card-3:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.order-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+}
+
+.modal-content {
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+span {
+    color: #888;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+span:hover {
+    color: #000;
+}
+
+.modal-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+tr:hover td {
+    background-color: #f1f1f1;
+}

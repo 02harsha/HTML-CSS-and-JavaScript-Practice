@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="searchUser" placeholder="search User" onchange="searchName()">
+    <table border="1" style="border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded',()=>{
+        showData()
+    })
+
+
+    const showData= async()=>{
+        let usersInfo=await UsersData()
+        renderData(usersInfo)
+    }
+    const renderData= async (users)=>{
+        users.forEach(element => {
+            let row = document.createElement('tr')
+
+            let id=document.createElement('td')
+            id.innerText=element.id
+
+            let name=document.createElement('td')
+            name.innerText=element.name
+
+            let email=document.createElement('td')
+            email.innerText=element.email
+
+            let city=document.createElement('td')
+            city.innerText=element.address.city
+
+            row.append(id,name,email,city)
+            document.querySelector('tbody').append(row)
+        });
+
+    }
+    const UsersData=async()=>{
+        try{
+            let response=await fetch('https://jsonplaceholder.typicode.com/users')
+            let data= response.json()
+            return data
+        }
+        catch(error){
+            console.log('cannot get data',error)
+        }
+        
+    }
+    
+    const searchName=async()=>{
+        
+        let searchItem=document.getElementById('searchUser').value.toLowerCase()
+        let userData=await UsersData()
+        const filterData=userData.filter((user)=>user.name.toLowerCase().includes(searchItem))
+        if(searchItem===''){
+            renderData(userData)
+        }
+        else if(searchItem===filterData){
+            document.querySelector('tbody').innerHTML=`No user Found`
+        }
+        else{
+            document.querySelector('tbody').innerHTML=''
+            renderData(filterData)
+        }
+        
+    }
+
+</script>
+</html>

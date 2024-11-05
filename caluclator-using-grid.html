@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./caluclator-using-grid.css">
+</head>
+<body>
+    <div>
+        <h1>Masai Caluclator</h1>
+        <p id="display" style="padding:10px; width: 245px; height: 20px; text-align: right;font-size: larger; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;;"></p>
+        <div class="buttons">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div value="+">+</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div value="-">-</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div value="*">*</div>
+            <div value="">C</div>
+            <div>0</div>
+            <div value="=">=</div>
+            <div value="/">/</div>
+        </div>
+    </div>
+    <script>
+        let res=''
+        let arr=document.querySelectorAll('.buttons>div')
+        for(let i=0;i<arr.length;i++){
+            arr[i].addEventListener('click',()=>{
+                
+                if(arr[i].innerText=='C'){
+                    res=''
+                    document.getElementById('display').innerText=res
+                }
+                else if(arr[i].innerText=='='){
+                    res=eval(res)
+                    document.getElementById('display').innerText=res
+                }
+                else{
+                    res=res+arr[i].innerText
+                    document.getElementById('display').innerText=res
+                }
+                
+            })
+        }
+        
+
+        
+        
+    </script>
+    
+</body>
+</html>

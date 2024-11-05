@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a href="./applications.html">applications</a>
+        <a href="./bookM.html">bookmarks</a>
+    </header>
+    <br>
+    <input type="text" id="name">
+    <select name="jobs" id="roles">
+        <option value="frontend">frontend</option>
+        <option value="backend">backend</option>
+        <option value="fullstack">Fullstack</option>
+    </select>
+    <input type="email" id="email">
+    <button id="apply">apply</button>
+</body>
+<script>
+    
+    let apply=document.querySelector('#apply')
+    let applications = JSON.parse(localStorage.getItem('applications')) || [];
+    console.log(applications)
+    apply.addEventListener('click',()=>{
+        let name=document.querySelector('#name').value
+        let role=document.querySelector('#roles').value
+        let email=document.querySelector('#email').value
+        obj={}
+        obj['name']=name
+        obj['role']=role
+        obj['email']=email
+        applications.push(obj)
+        localStorage.setItem('applications',JSON.stringify(applications))
+    })
+</script>
+</html>

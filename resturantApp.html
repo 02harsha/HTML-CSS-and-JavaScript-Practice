@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./resturantApp.css">
+    <script src="./resturantApp.js"></script>
+</head>
+<body>
+    <div class="app">
+        <div class="table-section">
+            
+            <h2>Table</h2>
+            <input type="text" placeholder="search for table" id="tableNumber" onchange="searchTable()">
+            
+        </div>
+        <div class="menu-section">
+            <h2>Menu</h2>
+            <input type="text" placeholder="search for food" onchange="searchItem()">
+            
+        </div>
+    </div>
+    <div class="order-modal">
+        
+        <div class="modal-content">
+            <span onclick="closePopup()">&times;</span>
+            <div class="modal-body">
+                <table border="1" style="border-collapse: collapse;padding: 10px;">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>price</th>
+                            <th>Quantity</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

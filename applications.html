@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Your applications</h1>
+    <select id="sortbyName" onchange="sortName()">
+        <option value="">--sort by name--</option>
+        <option value="asc">ascending</option>
+        <option value="dsc">descending</option>
+    </select>
+    <table border="1" style="border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>role</th>
+                <th>Email</th>
+                <th>bookmarks</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+<script>
+    let applications = localStorage.getItem('applications');
+    
+    if (applications) {
+        applications = JSON.parse(applications);
+    } else {
+        applications = [];
+    }
+    let data=document.querySelector('tbody')
+    let bookmarksArr = JSON.parse(localStorage.getItem('Bookmarks')) || [];
+    function renderTable(){
+        data.innerHTML=''
+        for(let i=0;i<applications.length;i++){
+            let row=document.createElement('tr')
+            let userName=document.createElement('td')
+            userName.innerText=applications[i].name
+            let userRole=document.createElement('td')
+            userRole.innerText=applications[i].role
+            let userMail=document.createElement('td')
+            userMail.innerText=applications[i].email
+            let bookmark=document.createElement('td')
+            bookmark.innerText='bookmark'
+            bookmark.addEventListener('click',()=>{
+                obj={}
+                obj['name']=userName.innerText
+                obj['role']=userRole.innerText
+                obj['email']=userMail.innerText
+                bookmarksArr.push(obj)
+                localStorage.setItem('Bookmarks',JSON.stringify(bookmarksArr))
+            })
+            row.append(userName,userRole,userMail,bookmark)
+            data.append(row)
+        }
+    }
+    renderTable()
+
+    function sortName(){
+        let sortOrder=document.querySelector('#sortbyName').value
+        applications.sort((a,b)=>{
+            const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+            const nameB = b.name.toUpperCase(); // ignore upper and lowercase
+            if (nameA < nameB) {
+                return sortOrder === 'asc' ? -1 : 1;
+            }
+            if (nameA > nameB) {
+                return sortOrder === 'asc' ? 1 : -1;
+            }
+            return 0;
+        })
+        renderTable()
+
+    }
+    
+</script>
+</html>

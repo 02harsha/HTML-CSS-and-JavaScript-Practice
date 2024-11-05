@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input1" value="" type="text">
+    <input id="input2" value="" type="text">
+    <button id="add" onclick="add()">add</button>
+    <button id="sub" onclick="sub()">subtract</button>
+    <button id="mul" onclick="mul()">multiply</button>
+    <button id="div" onclick="div()">divide</button>
+    <p id="res"></p>
+</body>
+<script>
+    function add(){
+        document.getElementById('res').innerText=parseInt(document.getElementById('input1').value)+parseInt(document.getElementById('input2').value)
+    }
+    function sub(){
+        document.getElementById('res').innerText=document.getElementById('input1').value-document.getElementById('input2').value
+    }
+    function mul(){
+        document.getElementById('res').innerText=document.getElementById('input1').value*document.getElementById('input2').value
+    }
+    function div(){
+        document.getElementById('res').innerText=document.getElementById('input1').value/document.getElementById('input2').value
+    }
+</script>
+</html>

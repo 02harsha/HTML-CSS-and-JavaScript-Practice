@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            gap: 20px;
+        }
+        .container>div{
+            width: 50px;
+            height: 100px;
+            
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="fn">hello</h1>
+    <p id="ln">flm</p>
+    <p id="fulln">vegit</p>
+    <hr>
+    <button onclick="getFirstName()">first name</button>
+    <button onclick="getSecondName()">lastname</button>
+    <button onclick="getFullName()">full name</button>
+    <button onclick="reset()">reset</button>
+    <br>
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</body>
+<script>
+    let divElements=document.getElementsByTagName('div')
+    for(let i=0;i<divElements.length;i++){
+        divElements[i].addEventListener('click',()=>{
+        divElements[i].style.backgroundColor='white'
+    })
+    }
+    const x= document.getElementById("fn").innerText
+    const y=document.getElementById("ln").innerText
+    const z=document.getElementById("fulln").innerText
+    function getFirstName(){
+        document.getElementById("fn").innerText='boya'
+    }
+    function getSecondName(){
+        
+        document.getElementById('ln').innerText='harsha vardhan'
+        
+    }
+    function getFullName(){
+        
+        document.getElementById('fulln').innerText=document.getElementById("fn").innerText+" "+document.getElementById('ln').innerText
+        
+    }
+    function reset(){
+        document.getElementById('fn').innerText=x
+        document.getElementById('ln').innerText=y
+        document.getElementById('fulln').innerText=z
+    }
+</script>
+</html>

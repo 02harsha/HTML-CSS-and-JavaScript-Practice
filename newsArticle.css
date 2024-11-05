@@ -1,0 +1,69 @@
+
+*{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.feed{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px;
+    
+}
+.feed .card{
+    width: 300px;
+}
+.card img{
+    width: 100%;
+}
+.card{
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.337);
+}
+h1{
+    text-align: center;
+    /* justify-content: center; */
+}
+.main{
+    background-color: rgba(8, 0, 255, 0.075);
+    padding: 40px;
+    
+}
+button{
+    border: 2px solid rgba(255, 0, 0, 0.159);
+    color: rgba(255, 0, 0, 0.926);
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 700;
+    display: block;
+    margin: 0 auto;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+.button{
+    width: 100%;
+    display: block;
+}
+span{
+    font-size: medium;
+}
+.main-1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.company-1{
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.244);
+}
+.date{
+    color: blue;
+}
+.main-1 img{
+    width: 100%;
+    height: auto;
+}

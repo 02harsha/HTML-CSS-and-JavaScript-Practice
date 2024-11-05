@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="searchId" onchange="search()">
+</body>
+<script>
+    function debounce(fun,delay){
+
+        let timeoutId;
+        return function (query){
+            clearTimeout(timeoutId)
+            timeoutId= setTimeout(()=>{
+                fun(query)
+            },2000)
+        }
+
+    }
+
+    const fetchData=debounce(showData,2000)
+    function showData(query){
+        console.log(query)
+    }
+    const element=document.getElementById('searchId')
+    element.addEventListener('keyup',()=>{
+        fetchData(event.target.value)
+    })
+</script>
+
+</html>
